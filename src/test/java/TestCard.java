@@ -15,7 +15,6 @@ public class TestCard {
     private static WebDriver driver;
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("web-driver.chrome.driver", "driver/win/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
