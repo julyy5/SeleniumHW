@@ -1,16 +1,25 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCard {
     private WebDriver driver;
-
+    @BeforeAll
+    static void setUpAll() {
+        System.setProperty("web-driver.chrome.driver", "driver/win/chromedriver.exe");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+    }
 
     @BeforeEach
     void setup() {
