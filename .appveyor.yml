@@ -7,8 +7,9 @@ branches:
   - main
 
 install:
-  - java -jar ./artifacts/app-order.jar &
   - chmod +x gradlew
+  - java -jar ./artifacts/app-order.jar &
+
 
 
 build: off
