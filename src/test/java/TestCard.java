@@ -34,7 +34,6 @@ public class TestCard {
 
     @Test
     void getWebsite() {
-        Configuration.headless = true;
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Анна-Мария Петрова-Иванова");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+71231111231");
