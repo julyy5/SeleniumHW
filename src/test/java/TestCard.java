@@ -13,18 +13,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCard {
     private static WebDriver driver;
+
     @BeforeAll
     static void setUpAll() {
+        WebDriverManager.chromedriver().setup();
+    }
+
+    @BeforeEach
+    void setup() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver(options);
-    }
-
-    @BeforeEach
-    void setup() {
-        driver = WebDriverManager.chromedriver().create();
     }
 
     @AfterEach
@@ -33,7 +34,7 @@ public class TestCard {
     }
 
     @Test
-    void getWebsite() {
+    void testCardApplicationForm() {
         driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Анна-Мария Петрова-Иванова");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+71231111231");
